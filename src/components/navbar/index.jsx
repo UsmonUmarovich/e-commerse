@@ -6,7 +6,7 @@ import {
   Typography,
   Container,
 } from "@mui/material";
-import { MenuIcon } from "@mui/icons-material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
 import React, { useState } from "react";
 import { List } from "./List";
 
@@ -26,8 +26,18 @@ export const Navbar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography variant="h5">3-COM</Typography>
-          <Box>
-            <IconButton>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: "flex",
+              justifyContent: "end",
+              alignItems: "center",
+            }}
+          >
+            <IconButton
+              onClick={handleOpenNavMenu}
+              sx={{ display: { xs: "block", md: "none" }, color: "white" }}
+            >
               <MenuIcon />
             </IconButton>
             <List

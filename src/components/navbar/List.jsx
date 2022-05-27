@@ -1,3 +1,4 @@
+import { AddShoppingCartOutlined, HomeOutlined } from "@mui/icons-material";
 import { Menu, MenuItem, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -7,11 +8,13 @@ const list = [
     id: 1,
     title: "Home",
     path: "/",
+    icon: HomeOutlined,
   },
   {
     id: 2,
     title: "Cart",
     path: "/cart",
+    icon: AddShoppingCartOutlined,
   },
 ];
 
@@ -35,7 +38,20 @@ export const List = ({ anchorElNav, handleCloseNavMenu }) => {
       {list.map((item) => {
         return (
           <MenuItem key={item.id}>
-            <Typography component={Link}>{item.title}</Typography>
+            <Typography
+              to={item.path}
+              component={Link}
+              sx={{
+                display: "flex",
+                gap: "1",
+                alignItems: "center",
+                color: (theme) => theme.palette.primary.main,
+                textDecoration: "none"
+              }}
+            >
+              <item.icon />
+              {item.title}
+            </Typography>
           </MenuItem>
         );
       })}
