@@ -1,5 +1,6 @@
-import { Menu } from "@mui/material";
+import { Menu, MenuItem, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const list = [
   {
@@ -31,9 +32,13 @@ export const List = ({ anchorElNav, handleCloseNavMenu }) => {
         display: { xs: "block", md: "none" },
       }}
     >
-      {
-          
-      }
+      {list.map((item) => {
+        return (
+          <MenuItem key={item.id}>
+            <Typography component={Link}>{item.title}</Typography>
+          </MenuItem>
+        );
+      })}
     </Menu>
   );
 };

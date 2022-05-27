@@ -1,19 +1,44 @@
-import { AppBar, Toolbar, Typography } from '@mui/material'
-import { Container } from '@mui/system'
-import React from 'react'
+import {
+  AppBar,
+  Box,
+  IconButton,
+  Toolbar,
+  Typography,
+  Container,
+} from "@mui/material";
+import { MenuIcon } from "@mui/icons-material/Menu";
+import React, { useState } from "react";
+import { List } from "./List";
 
 export const Navbar = () => {
-  return (
-    <AppBar position='static'>
-        <Container maxWidth='xl'>
-            <Toolbar disableGutters>
-                <Typography variant='h5'>
-                    3-COM
-                </Typography>
-            </Toolbar>
-        </Container>
-    </AppBar>
-  )
-}
+  const [anchorElNav, setAnchorElNav] = useState(null);
 
-export default Navbar
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  return (
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <Typography variant="h5">3-COM</Typography>
+          <Box>
+            <IconButton>
+              <MenuIcon />
+            </IconButton>
+            <List
+              anchorElNav={anchorElNav}
+              handleCloseNavMenu={handleCloseNavMenu}
+            />
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
+  );
+};
+
+export default Navbar;
