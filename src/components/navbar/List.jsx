@@ -1,22 +1,7 @@
-import { AddShoppingCartOutlined, HomeOutlined } from "@mui/icons-material";
 import { Menu, MenuItem, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-
-const list = [
-  {
-    id: 1,
-    title: "Home",
-    path: "/",
-    icon: HomeOutlined,
-  },
-  {
-    id: 2,
-    title: "Cart",
-    path: "/cart",
-    icon: AddShoppingCartOutlined,
-  },
-];
+import { list } from "./listarray";
 
 export const List = ({ anchorElNav, handleCloseNavMenu }) => {
   return (
@@ -46,7 +31,7 @@ export const List = ({ anchorElNav, handleCloseNavMenu }) => {
                 gap: "1",
                 alignItems: "center",
                 color: (theme) => theme.palette.primary.main,
-                textDecoration: "none"
+                textDecoration: "none",
               }}
             >
               <item.icon />
