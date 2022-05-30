@@ -21,7 +21,7 @@ const AllProductProvider = ({ children }) => {
     query
       .getAllProducts()
       .then((result) =>
-        setAllProducts({ isLoading: false, products: result, isError: false })
+        setAllProducts({ isLoading: false, isError: false, products: result.data })
       )
       .catch((err) =>
         setAllProducts({ isLoading: false, products: [], isError: true })
@@ -34,3 +34,5 @@ const AllProductProvider = ({ children }) => {
     </AllProductsContext.Provider>
   );
 };
+
+export default AllProductProvider;
