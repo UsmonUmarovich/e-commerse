@@ -9,6 +9,7 @@ import {
   Paper,
 } from "@mui/material";
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -24,10 +25,11 @@ const HomePage = () => {
           }}
         >
           <Box sx={{ display: "flex", gap: 2 }}>
-            <Button variant="outlined">Electronics</Button>
-            <Button variant="outlined">jewelery</Button>
-            <Button variant="outlined">men's clothing</Button>
-            <Button variant="outlined">women's clothing</Button>
+            <Button component={Link} to="/" variant="outlined">All</Button>
+            <Button component={Link} to="/" variant="outlined">Electronics</Button>
+            <Button component={Link} to="/" variant="outlined">jewelery</Button>
+            <Button component={Link} to="/" variant="outlined">men's clothing</Button>
+            <Button component={Link} to="/" variant="outlined">women's clothing</Button>
           </Box>
 
           <Paper
