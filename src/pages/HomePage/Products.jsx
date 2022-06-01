@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useProductsByCategory } from "../../contexts/ProductsByCategory";
 
 export const Products = () => {
-  const { products, getProductsCategory } = useProductsByCategory;
+  const { products, getProductsCategory } = useProductsByCategory();
 
   const params = useParams();
 

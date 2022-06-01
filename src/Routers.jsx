@@ -10,8 +10,8 @@ function Routers() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route path="/" element={<HomePage />}>
-            <Route path="/" element={<Products/>}/>
-            <Route path="/:id" element={<Products/>}/>
+            <Route path="/" element={<Products />} />
+            <Route path="/:id" element={<Products />} />
           </Route>
         </Route>
       </Routes>
