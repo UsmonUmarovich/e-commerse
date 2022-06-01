@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
+import query from "../services/api/api.service";
 
 const CategoriesContext = createContext({
   isLoading: false,
@@ -24,8 +25,8 @@ const CategoriesProvider = ({ children }) => {
       .then((result) =>
         setCategories({
           isLoading: false,
-          isError: false,
-          categories: result.data,
+          isError: false, 
+          categories: ["all", ...result.data],
         })
       )
       .catch((err) =>
@@ -39,3 +40,5 @@ const CategoriesProvider = ({ children }) => {
     </CategoriesContext.Provider>
   );
 };
+
+export default CategoriesProvider

@@ -1,7 +1,6 @@
 import { SearchOutlined } from "@mui/icons-material";
 import {
   Box,
-  Button,
   Container,
   Divider,
   IconButton,
@@ -9,7 +8,8 @@ import {
   Paper,
 } from "@mui/material";
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { HomeTop } from "../../components/home/HomeTop";
 
 const HomePage = () => {
   return (
@@ -24,14 +24,7 @@ const HomePage = () => {
             mt: 6,
           }}
         >
-          <Box sx={{ display: "flex", gap: 2 }}>
-            <Button component={Link} to="/" variant="outlined">All</Button>
-            <Button component={Link} to="/" variant="outlined">Electronics</Button>
-            <Button component={Link} to="/" variant="outlined">jewelery</Button>
-            <Button component={Link} to="/" variant="outlined">men's clothing</Button>
-            <Button component={Link} to="/" variant="outlined">women's clothing</Button>
-          </Box>
-
+          <HomeTop />
           <Paper
             variant="outlined"
             sx={{ p: "2px 4px", display: "flex", alignItems: "center" }}
@@ -43,6 +36,7 @@ const HomePage = () => {
           </Paper>
         </Box>
         <Divider sx={{ mt: 4 }} />
+        <Outlet />
       </Container>
     </Fragment>
   );
