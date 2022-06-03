@@ -8,7 +8,7 @@ const AllProductsContext = createContext({
 });
 AllProductsContext.displayName = "AllProductsContext";
 
-export const useAllProducts = () => useContext(AllProductsContext);
+export const useAllProduct = () => useContext(AllProductsContext);
 
 const AllProductProvider = ({ children }) => {
   const [allProducts, setAllProducts] = useState({

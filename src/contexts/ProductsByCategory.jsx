@@ -27,6 +27,7 @@ const ProductsByCategoryProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    setProducts({ isLoading: true, isError: false, products: [] })
     query
       .getProductsByCategory(category)
       .then((result) =>

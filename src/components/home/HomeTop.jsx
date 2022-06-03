@@ -9,7 +9,7 @@ export const HomeTop = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const params = useParams()
+  const params = useParams();
 
   const navigateTo = (category) => {
     navigate(category === "all" ? "/" : category);
@@ -20,10 +20,11 @@ export const HomeTop = () => {
       <Box sx={{ display: "flex", gap: 2 }}>
         {isLoading && (
           <>
+            <Skeleton variant="rectangular" width={70} height={20} />
+            <Skeleton variant="rectangular" width={140} height={20} />
             <Skeleton variant="rectangular" width={100} height={20} />
-            <Skeleton variant="rectangular" width={100} height={20} />
-            <Skeleton variant="rectangular" width={100} height={20} />
-            <Skeleton variant="rectangular" width={100} height={20} />
+            <Skeleton variant="rectangular" width={140} height={20} />
+            <Skeleton variant="rectangular" width={140} height={20} />
           </>
         )}
         {categories.map((category, index) => {
