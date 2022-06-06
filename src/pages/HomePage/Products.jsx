@@ -19,35 +19,45 @@ export const Products = () => {
 
   if (!params.id) {
     return (
-      <Grid container spacing={2} justifyContent="flex-start" alignItems="stretch">
-      {allProduct.isLoading && (
-        <>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <SkeletonCard />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <SkeletonCard />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <SkeletonCard />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <SkeletonCard />
-          </Grid>
-        </>
-      )}
+      <Grid
+        container
+        spacing={2}
+        justifyContent="flex-start"
+        alignItems="stretch"
+      >
+        {allProduct.isLoading && (
+          <>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <SkeletonCard />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <SkeletonCard />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <SkeletonCard />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <SkeletonCard />
+            </Grid>
+          </>
+        )}
 
-      {allProduct.products.length && allProduct.products.map((product) => (
+        {allProduct.products.map((product) => (
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <ProductCard product={product} />
           </Grid>
         ))}
-    </Grid>
-    )
+      </Grid>
+    );
   }
 
   return (
-    <Grid container spacing={2} justifyContent="flex-start" alignItems="stretch">
+    <Grid
+      container
+      spacing={2}
+      justifyContent="flex-start"
+      alignItems="stretch"
+    >
       {products.isLoading && (
         <>
           <Grid item xs={12} sm={6} md={4} lg={3}>
@@ -65,7 +75,8 @@ export const Products = () => {
         </>
       )}
 
-      {products.products.length && products.products.map((product) => (
+      {products.products.length &&
+        products.products.map((product) => (
           <Grid item xs={12} sm={6} md={4} lg={3}>
             <ProductCard product={product} />
           </Grid>

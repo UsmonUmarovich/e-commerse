@@ -6,6 +6,7 @@ import "./assets/styles/index.css";
 import AllProductProvider from "./contexts/AllProducts";
 import CategoriesProvider from "./contexts/Categories";
 import ProductsByCategoryProvider from "./contexts/ProductsByCategory";
+import ProductProvider from "./contexts/Product";
 import Routers from "./Routers";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -15,7 +16,9 @@ root.render(
       <AllProductProvider>
         <CategoriesProvider>
           <ProductsByCategoryProvider>
-            <Routers />
+            <ProductProvider>
+              <Routers />
+            </ProductProvider>
           </ProductsByCategoryProvider>
         </CategoriesProvider>
       </AllProductProvider>

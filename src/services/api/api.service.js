@@ -34,6 +34,16 @@ const query = {
       return error;
     }
   },
+
+  getProductById: async (id) => {
+    try {
+      let result = await api.get("/products/" + id);
+      return result;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  },
 };
 
 export default query;
