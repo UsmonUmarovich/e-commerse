@@ -75,12 +75,11 @@ export const Products = () => {
         </>
       )}
 
-      {products.products.length &&
-        products.products.map((product) => (
-          <Grid item xs={12} sm={6} md={4} lg={3}>
-            <ProductCard product={product} />
-          </Grid>
-        ))}
+      {products.products.map((product) => (
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <ProductCard product={product} />
+        </Grid>
+      ))}
     </Grid>
   );
 };
