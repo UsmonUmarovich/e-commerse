@@ -12,6 +12,7 @@ import React, { useState } from "react";
 import { List } from "./List";
 import { list } from "./listarray";
 import { Link } from "react-router-dom";
+import { HomeOutlined, ShoppingCart } from "@mui/icons-material";
 
 export const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -47,20 +48,23 @@ export const Navbar = () => {
               anchorElNav={anchorElNav}
               handleCloseNavMenu={handleCloseNavMenu}
             />
-            <Box sx={{display: {xs: "none", md: "flex"}}}>
-              {list.map((item) => {
-                return (
-                  <Button
-                    component={Link}
-                    to={item.path}
-                    startIcon={<item.icon />}
-                    variant="text"
-                    color="inherit"
-                  >
-                    {item.title}
-                  </Button>
-                );
-              })}
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <Button
+                component={Link}
+                to="/"
+                startIcon={<HomeOutlined />}
+                variant="text"
+                color="inherit"
+              >
+                Home
+              </Button>
+              <Button
+                startIcon={<ShoppingCart />}
+                variant="text"
+                color="inherit"
+              >
+                Cart
+              </Button>
             </Box>
           </Box>
         </Toolbar>

@@ -1,4 +1,4 @@
-import { HomeOutlined } from "@mui/icons-material";
+import { HomeOutlined, ShoppingCart } from "@mui/icons-material";
 import { Menu, MenuItem, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -34,6 +34,20 @@ export const List = ({ anchorElNav, handleCloseNavMenu }) => {
         >
           <HomeOutlined />
           Home
+        </Typography>
+      </MenuItem>
+      <MenuItem>
+        <Typography
+          sx={{
+            display: "flex",
+            gap: "1",
+            alignItems: "center",
+            color: (theme) => theme.palette.primary.main,
+            textDecoration: "none",
+          }}
+        >
+          <ShoppingCart />
+          Cart
         </Typography>
       </MenuItem>
     </Menu>

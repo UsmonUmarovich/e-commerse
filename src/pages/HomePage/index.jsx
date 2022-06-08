@@ -7,11 +7,25 @@ import {
   InputBase,
   Paper,
 } from "@mui/material";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Outlet } from "react-router-dom";
+import { CartDrawer } from "../../components/CartDrawer";
 import { HomeTop } from "../../components/home/HomeTop";
 
 const HomePage = () => {
+  const [open, setOpen] = useState(false)
+
+  const openCart = () => {
+    setOpen(true)
+  }
+
+  const closeCart = () => {
+    setOpen(false)
+  }
+
+  const toggleCart = () => {
+    setOpen(prew => !prew)
+  }
   return (
     <Fragment>
       <Container maxWidth="xl">
@@ -37,6 +51,8 @@ const HomePage = () => {
         </Box>
         <Divider sx={{ mt: 4 }} />
         <Outlet />
+
+        <CartDrawer open={open}/>
       </Container>
     </Fragment>
   );
