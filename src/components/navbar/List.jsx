@@ -1,7 +1,7 @@
+import { HomeOutlined } from "@mui/icons-material";
 import { Menu, MenuItem, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
-import { list } from "./listarray";
 
 export const List = ({ anchorElNav, handleCloseNavMenu }) => {
   return (
@@ -20,26 +20,22 @@ export const List = ({ anchorElNav, handleCloseNavMenu }) => {
         display: { xs: "block", md: "none" },
       }}
     >
-      {list.map((item) => {
-        return (
-          <MenuItem key={item.id}>
-            <Typography
-              to={item.path}
-              component={Link}
-              sx={{
-                display: "flex",
-                gap: "1",
-                alignItems: "center",
-                color: (theme) => theme.palette.primary.main,
-                textDecoration: "none",
-              }}
-            >
-              <item.icon />
-              {item.title}
-            </Typography>
-          </MenuItem>
-        );
-      })}
+      <MenuItem>
+        <Typography
+          component={Link}
+          to="/"
+          sx={{
+            display: "flex",
+            gap: "1",
+            alignItems: "center",
+            color: (theme) => theme.palette.primary.main,
+            textDecoration: "none",
+          }}
+        >
+          <HomeOutlined />
+          Home
+        </Typography>
+      </MenuItem>
     </Menu>
   );
 };

@@ -1,12 +1,16 @@
-import { Box, Container, Rating, Skeleton, Typography } from "@mui/material";
+import { Box, Button, Container, Rating, Typography } from "@mui/material";
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { SkeletonProduct } from "../../components/SkeletonProduct";
 import { useProduct } from "../../contexts/Product";
+import { LocalMallSharp, ShoppingCartRounded } from "@mui/icons-material";
+import { useCart } from "../../contexts/Cart";
 
 export const Product = () => {
   const { product, getProductById } = useProduct();
+  const { addToCart } = useCart();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProductById(id);
@@ -19,9 +23,15 @@ export const Product = () => {
         mt: 10,
       }}
     >
+      <Button
+        sx={{ position: "absolute", top: 70, left: 20, fontSize: 30 }}
+        onClick={() => navigate(-1)}
+      >
+        ←
+      </Button>
       {product.isLoading && <SkeletonProduct />}
 
-      {product.product && (
+      {product.product && !product.isLoading && (
         <Box
           sx={{
             display: "flex",
@@ -42,6 +52,7 @@ export const Product = () => {
               display: "flex",
               flexDirection: "column",
               gap: 3,
+              alignItems: "flex-start",
             }}
           >
             <Typography variant="h5">{product.product.title}</Typography>
@@ -63,7 +74,30 @@ export const Product = () => {
                 value={product.product.rating?.rate}
                 readOnly
               />{" "}
-              - <Typography>{product.product.rating?.count}</Typography>
+              -<Typography>{product.product.rating?.count}</Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                gap: 2,
+              }}
+            >
+              <Button
+                variant="outlined"
+                color="warning"
+                startIcon={<LocalMallSharp />}
+              >
+                Buy Now
+              </Button>
+              <Button
+                variant="contained"
+                color="warning"
+                size="large"
+                onClick={() => addToCart(product.product)}
+                startIcon={<ShoppingCartRounded />}
+              >
+                Add to Cart
+              </Button>
             </Box>
           </Box>
         </Box>

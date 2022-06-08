@@ -10,7 +10,6 @@ export const list = [
     {
       id: 2,
       title: "Cart",
-      path: "/cart",
       icon: AddShoppingCartOutlined,
     },
   ];
