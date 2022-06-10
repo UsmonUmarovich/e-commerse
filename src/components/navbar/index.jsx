@@ -10,12 +10,13 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import React, { useState } from "react";
 import { List } from "./List";
-import { list } from "./listarray";
 import { Link } from "react-router-dom";
 import { HomeOutlined, ShoppingCart } from "@mui/icons-material";
+import { useDrawer } from "../../contexts/Drawer";
 
 export const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
+  const { openDrawer } = useDrawer();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -62,6 +63,7 @@ export const Navbar = () => {
                 startIcon={<ShoppingCart />}
                 variant="text"
                 color="inherit"
+                onClick={() => openDrawer()}
               >
                 Cart
               </Button>

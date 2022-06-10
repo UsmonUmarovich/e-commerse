@@ -9,6 +9,7 @@ import ProductsByCategoryProvider from "./contexts/ProductsByCategory";
 import ProductProvider from "./contexts/Product";
 import Routers from "./Routers";
 import CartProvider from "./contexts/Cart";
+import DrawerProvider from "./contexts/Drawer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,7 +20,9 @@ root.render(
           <ProductsByCategoryProvider>
             <ProductProvider>
               <CartProvider>
-                <Routers />
+                <DrawerProvider>
+                  <Routers />
+                </DrawerProvider>
               </CartProvider>
             </ProductProvider>
           </ProductsByCategoryProvider>

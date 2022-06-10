@@ -38,3 +38,5 @@ const DrawerProvider = ({ children }) => {
     </DrawerContext.Provider>
   );
 };
+
+export default DrawerProvider;

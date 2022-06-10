@@ -2,8 +2,11 @@ import { HomeOutlined, ShoppingCart } from "@mui/icons-material";
 import { Menu, MenuItem, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDrawer } from "../../contexts/Drawer";
 
 export const List = ({ anchorElNav, handleCloseNavMenu }) => {
+  const { openDrawer } = useDrawer();
+
   return (
     <Menu
       id="menu-appbar"
@@ -38,6 +41,7 @@ export const List = ({ anchorElNav, handleCloseNavMenu }) => {
       </MenuItem>
       <MenuItem>
         <Typography
+          onClick={() => openDrawer()}
           sx={{
             display: "flex",
             gap: "1",

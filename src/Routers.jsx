@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
+import { CartDrawer } from "./components/CartDrawer";
 import { MainLayout } from "./layout/MainLayout";
 import HomePage from "./pages/HomePage";
 import { Product } from "./pages/HomePage/Product";
@@ -14,9 +15,10 @@ function Routers() {
             <Route path="/" element={<Products />} />
             <Route path="/:id" element={<Products />} />
           </Route>
-            <Route path="/product/:id" element={<Product/>}/>
+          <Route path="/product/:id" element={<Product />} />
         </Route>
       </Routes>
+      <CartDrawer />
     </Fragment>
   );
 }

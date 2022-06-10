@@ -51,8 +51,6 @@ const HomePage = () => {
         </Box>
         <Divider sx={{ mt: 4 }} />
         <Outlet />
-
-        <CartDrawer open={open}/>
       </Container>
     </Fragment>
   );
