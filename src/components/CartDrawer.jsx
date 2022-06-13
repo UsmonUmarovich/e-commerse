@@ -34,7 +34,12 @@ export const CartDrawer = () => {
             mt: 2,
           }}
         >
-          <Button onClick={clearCart} sx={{ width: "100%" }} color="warning" variant="outlined">
+          <Button
+            onClick={clearCart}
+            sx={{ width: "100%" }}
+            color="warning"
+            variant="outlined"
+          >
             Clear
           </Button>
           <Button sx={{ width: "100%" }} color="warning" variant="contained">
@@ -50,7 +55,7 @@ export const CartDrawer = () => {
             marginTop: 2,
           }}
         >
-          {cart.map(product => (
+          {cart.map((product) => (
             <CartProduct key={product.id} product={product} />
           ))}
         </Box>
