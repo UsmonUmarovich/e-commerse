@@ -17,6 +17,7 @@ export const TotalSum = () => {
         background: (theme) => theme.palette.success.light,
         color: "#fff",
         borderRadius: "5px",
+        cursor: "default",
       }}
     >
       Total sum: ${summ.toFixed(2)}
