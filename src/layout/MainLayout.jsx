@@ -1,5 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { BuyDialog } from "../components/BuyDialog";
+import { Footer } from "../components/Footer";
 import Navbar from "../components/navbar";
 
 export const MainLayout = () => {
@@ -7,6 +9,8 @@ export const MainLayout = () => {
     <div>
       <Navbar />
       <Outlet />
+      <BuyDialog />
+      <Footer />
     </div>
   );
 };

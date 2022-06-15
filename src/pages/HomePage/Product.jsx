@@ -5,9 +5,11 @@ import { SkeletonProduct } from "../../components/SkeletonProduct";
 import { useProduct } from "../../contexts/Product";
 import { LocalMallSharp, ShoppingCartRounded } from "@mui/icons-material";
 import { useCart } from "../../contexts/Cart";
+import { useDialog } from "../../contexts/CartDialog";
 
 export const Product = () => {
   const { product, getProductById } = useProduct();
+  const { onOpenDialog } = useDialog();
   const { addToCart } = useCart();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -86,6 +88,7 @@ export const Product = () => {
                 variant="outlined"
                 color="warning"
                 startIcon={<LocalMallSharp />}
+                onClick={onOpenDialog}
               >
                 Buy Now
               </Button>

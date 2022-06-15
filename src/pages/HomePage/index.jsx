@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import React, { Fragment, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { CartDrawer } from "../../components/CartDrawer";
 import { HomeTop } from "../../components/home/HomeTop";
 
 const HomePage = () => {

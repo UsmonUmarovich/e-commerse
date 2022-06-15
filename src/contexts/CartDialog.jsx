@@ -7,7 +7,7 @@ const CartDialog = createContext({
 });
 CartDialog.displayName = "Dialog";
 
-export const useCartDialog = () => useContext(CartDialog);
+export const useDialog = () => useContext(CartDialog);
 
 const DialogProvider = ({ children }) => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -26,3 +26,5 @@ const DialogProvider = ({ children }) => {
     </CartDialog.Provider>
   );
 };
+
+export default DialogProvider;
