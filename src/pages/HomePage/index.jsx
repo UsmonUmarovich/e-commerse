@@ -8,23 +8,29 @@ import {
   Paper,
 } from "@mui/material";
 import React, { Fragment, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { HomeTop } from "../../components/home/HomeTop";
+import { useEffect } from "react";
 
 const HomePage = () => {
-  const [open, setOpen] = useState(false)
+  const [value, setValue] = useState("");
+  const navigate = useNavigate();
+  const [warning, setWarning] = useState(false);
 
-  const openCart = () => {
-    setOpen(true)
-  }
+  const clickHandler = () => {
+    if (!value.trim() || value.length < 3) {
+      setWarning(true);
+      return;
+    }
+    navigate("/search/" + value);
+  };
 
-  const closeCart = () => {
-    setOpen(false)
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      setWarning(false);
+    }, 3000);
+  }, [warning === true]);
 
-  const toggleCart = () => {
-    setOpen(prew => !prew)
-  }
   return (
     <Fragment>
       <Container maxWidth="xl">
@@ -40,10 +46,20 @@ const HomePage = () => {
           <HomeTop />
           <Paper
             variant="outlined"
-            sx={{ p: "2px 4px", display: "flex", alignItems: "center" }}
+            sx={{
+              p: "2px 4px",
+              display: "flex",
+              alignItems: "center",
+              border: "1px solid",
+              borderColor: warning ? "red" : "gray",
+            }}
           >
-            <InputBase placeholder="search" />
-            <IconButton>
+            <InputBase
+              value={value}
+              onChange={(event) => setValue(event.target.value)}
+              placeholder={warning ? "Min charaters 3" : "Search"}
+            />
+            <IconButton onClick={clickHandler}>
               <SearchOutlined />
             </IconButton>
           </Paper>
